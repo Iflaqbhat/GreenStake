@@ -1,92 +1,87 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 150 50% 98%;
+    --foreground: 146 60% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 146 60% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 146 60% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 144 100% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 42 87% 55%;
+    --secondary-foreground: 144 64% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 146 20% 92%;
+    --muted-foreground: 146 30% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 42 87% 55%;
+    --accent-foreground: 144 64% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 146 20% 85%;
+    --input: 146 20% 85%;
+    --ring: 142 76% 36%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 150 50% 98%;
+    --sidebar-foreground: 146 60% 12%;
+    --sidebar-primary: 142 76% 36%;
+    --sidebar-primary-foreground: 144 100% 98%;
+    --sidebar-accent: 146 20% 92%;
+    --sidebar-accent-foreground: 146 60% 12%;
+    --sidebar-border: 146 20% 85%;
+    --sidebar-ring: 142 76% 36%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 148 30% 10%;
+    --foreground: 144 100% 90%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 148 28% 12%;
+    --card-foreground: 144 100% 90%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 148 28% 12%;
+    --popover-foreground: 144 100% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 142 76% 45%;
+    --primary-foreground: 144 100% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 42 87% 55%;
+    --secondary-foreground: 144 64% 12%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 148 20% 20%;
+    --muted-foreground: 146 30% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 42 87% 45%;
+    --accent-foreground: 144 100% 90%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 148 20% 25%;
+    --input: 148 20% 25%;
+    --ring: 142 76% 45%;
+
+    --sidebar-background: 148 30% 10%;
+    --sidebar-foreground: 144 100% 90%;
+    --sidebar-primary: 142 76% 45%;
+    --sidebar-primary-foreground: 144 100% 98%;
+    --sidebar-accent: 148 20% 20%;
+    --sidebar-accent-foreground: 144 100% 90%;
+    --sidebar-border: 148 20% 25%;
+    --sidebar-ring: 142 76% 45%;
   }
 }
 
@@ -96,6 +91,20 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .eco-card {
+    @apply bg-white dark:bg-card rounded-xl shadow-md hover:shadow-lg transition-all p-6 border border-green-100 dark:border-green-900;
+  }
+  
+  .eco-button {
+    @apply bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md font-medium transition-all;
+  }
+  
+  .eco-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
   }
 }

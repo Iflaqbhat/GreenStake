@@ -1,13 +1,41 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import Layout from '../components/Layout';
+import Hero from '../components/Hero';
+import FeatureSection from '../components/FeatureSection';
+import LeaderboardTable from '../components/LeaderboardTable';
+import DaoPreview from '../components/DaoPreview';
+import CtaSection from '../components/CtaSection';
+import { Separator } from '@/components/ui/separator';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <Layout>
+      <Hero />
+      <FeatureSection />
+      
+      <section className="py-16">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center text-green-800 dark:text-green-400 mb-12">
+            Top Environmental Contributors
+          </h2>
+          <LeaderboardTable />
+        </div>
+      </section>
+      
+      <Separator className="bg-border" />
+      
+      <section className="py-16">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center text-green-800 dark:text-green-400 mb-12">
+            Community-Driven Green Initiatives
+          </h2>
+          <DaoPreview />
+        </div>
+      </section>
+      
+      <CtaSection />
+    </Layout>
   );
 };
 

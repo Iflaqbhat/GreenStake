@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,6 +25,31 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				green: {
+					50: '#f0fdf4',
+					100: '#dcfce7',
+					200: '#bbf7d0',
+					300: '#86efac',
+					400: '#4ade80',
+					500: '#22c55e',
+					600: '#16a34a',
+					700: '#15803d',
+					800: '#166534',
+					900: '#14532d',
+					950: '#052e16',
+				},
+				earth: {
+					100: '#f7f3ee',
+					200: '#e8d9c6',
+					300: '#d7bc97',
+					400: '#c19f72',
+					500: '#a6865b',
+				},
+				sky: {
+					300: '#7dd3fc',
+					400: '#38bdf8',
+					500: '#0ea5e9',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -63,6 +89,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -84,11 +113,25 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'leaf-sway': {
+					'0%, 100%': { transform: 'rotate(-1deg)' },
+					'50%': { transform: 'rotate(1deg)' },
+				},
+				'grow': {
+					'0%': { transform: 'scale(0.9)', opacity: '0.5' },
+					'100%': { transform: 'scale(1)', opacity: '1' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'leaf-sway': 'leaf-sway 3s ease-in-out infinite',
+				'grow': 'grow 0.5s ease-out',
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'leaf-pattern': "url('/leaf-pattern.svg')",
 			}
 		}
 	},
