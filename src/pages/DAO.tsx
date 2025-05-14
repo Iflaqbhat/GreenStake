@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import DaoPreview from '../components/DaoPreview';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,9 +8,20 @@ import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { Users, HandCoins, Flag } from "lucide-react";
+import { Users, HandCoins, Flag, Wallet } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { toast } from "@/components/ui/sonner";
 
 const DAO = () => {
+  const [createProposalOpen, setCreateProposalOpen] = useState(false);
+
+  const handleCreateProposal = () => {
+    toast.success("This feature will be available soon!", {
+      description: "Connect your wallet to create proposals once this feature is launched."
+    });
+    setCreateProposalOpen(false);
+  };
+
   return (
     <Layout>
       <div className="container py-12">
@@ -128,10 +139,40 @@ const DAO = () => {
             <li>Completed projects share their environmental impact metrics.</li>
           </ol>
           <div className="mt-6 pt-4 border-t border-border">
-            <Button className="bg-green-600 hover:bg-green-700">Create a Proposal</Button>
+            <Button 
+              className="bg-green-600 hover:bg-green-700 flex gap-1"
+              onClick={() => setCreateProposalOpen(true)}
+            >
+              Create a Proposal
+            </Button>
           </div>
         </Card>
       </div>
+
+      {/* Create Proposal Dialog */}
+      <Dialog open={createProposalOpen} onOpenChange={setCreateProposalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Create a DAO Proposal</DialogTitle>
+            <DialogDescription>
+              Submit your environmental project for community voting and funding.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="flex flex-col items-center justify-center py-8">
+            <Wallet className="h-12 w-12 text-green-600 mb-4" />
+            <p className="text-center mb-4">Connect your wallet to create a proposal</p>
+            <Button 
+              variant="outline"
+              className="gap-1" 
+              onClick={handleCreateProposal}
+            >
+              <Wallet className="h-4 w-4" />
+              Connect Wallet
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };

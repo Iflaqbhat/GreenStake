@@ -1,10 +1,15 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { TreeDeciduous, Award, Users, Database } from "lucide-react";
+import { TreeDeciduous, Award, Users, Database, LogIn, Wallet } from "lucide-react";
+import WalletConnectDialog from './WalletConnectDialog';
+import SignUpDialog from './SignUpDialog';
 
 const Navbar = () => {
+  const [walletDialogOpen, setWalletDialogOpen] = useState(false);
+  const [signUpDialogOpen, setSignUpDialogOpen] = useState(false);
+
   return (
     <header className="w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
@@ -30,14 +35,33 @@ const Navbar = () => {
           </Link>
         </nav>
         <div className="flex items-center gap-2">
-          <Button variant="outline" className="hidden sm:flex">
+          <Button 
+            variant="outline" 
+            className="hidden sm:flex gap-1"
+            onClick={() => setWalletDialogOpen(true)}
+          >
+            <Wallet className="h-4 w-4" />
             Connect Wallet
           </Button>
-          <Button className="bg-green-600 hover:bg-green-700 text-white">
+          <Button 
+            className="bg-green-600 hover:bg-green-700 text-white flex gap-1"
+            onClick={() => setSignUpDialogOpen(true)}
+          >
+            <LogIn className="h-4 w-4" />
             Sign Up
           </Button>
         </div>
       </div>
+
+      {/* Dialogs */}
+      <WalletConnectDialog 
+        open={walletDialogOpen} 
+        onOpenChange={setWalletDialogOpen} 
+      />
+      <SignUpDialog 
+        open={signUpDialogOpen} 
+        onOpenChange={setSignUpDialogOpen} 
+      />
     </header>
   );
 };
