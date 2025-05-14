@@ -1,9 +1,9 @@
-
 import React from 'react';
 import Layout from '../components/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { TreeDeciduous, Leaf, HandCoins, Award, Database } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const AboutPage = () => {
   return (
@@ -169,4 +169,4 @@ const AboutPage = () => {
   );
 };
 
-export default About;
+export default AboutPage;
