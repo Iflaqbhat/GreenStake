@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import EcoActionsList from '../components/EcoActionsList';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Trophy, Bike, Recycle, TreeDeciduous } from "lucide-react";
 
 const Actions = () => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
   return (
     <Layout>
       <div className="container py-12">
@@ -27,7 +29,7 @@ const Actions = () => {
           </Card>
         </div>
         
-        <Tabs defaultValue="all" className="mb-8">
+        <Tabs defaultValue="all" className="mb-8" onValueChange={setSelectedCategory}>
           <TabsList>
             <TabsTrigger value="all">All Actions</TabsTrigger>
             <TabsTrigger value="transportation">
@@ -45,28 +47,19 @@ const Actions = () => {
           </TabsList>
           
           <TabsContent value="all" className="mt-6">
-            <EcoActionsList />
+            <EcoActionsList filter="all" />
           </TabsContent>
           
           <TabsContent value="transportation" className="mt-6">
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">Transportation-specific actions will be shown here.</p>
-              <Button variant="outline" className="mt-4">Coming Soon</Button>
-            </div>
+            <EcoActionsList filter="transportation" />
           </TabsContent>
           
           <TabsContent value="waste" className="mt-6">
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">Waste reduction-specific actions will be shown here.</p>
-              <Button variant="outline" className="mt-4">Coming Soon</Button>
-            </div>
+            <EcoActionsList filter="waste" />
           </TabsContent>
           
           <TabsContent value="planting" className="mt-6">
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">Planting-specific actions will be shown here.</p>
-              <Button variant="outline" className="mt-4">Coming Soon</Button>
-            </div>
+            <EcoActionsList filter="planting" />
           </TabsContent>
         </Tabs>
         
